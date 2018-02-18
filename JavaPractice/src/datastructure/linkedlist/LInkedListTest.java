@@ -8,6 +8,7 @@ public class LInkedListTest {
         list.insertAtFirst(3);
         list.insertAtFirst(4);
         list.insertAtFirst(5);
+        list.insertAtLast(12);
         list.print();
         System.out.println();
         System.out.println("Total nodes : " + list.getLength());

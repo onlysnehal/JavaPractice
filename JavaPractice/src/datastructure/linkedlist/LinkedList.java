@@ -16,6 +16,17 @@ public class LinkedList {
         this.head = newNode;
     }
 
+    public void insertAtLast(int data) {
+        // Create a new node to insert at first
+        Node newNode = new Node(data);
+
+        Node currentNode = this.head;
+        while(currentNode.getNextNode() != null) {
+            currentNode = currentNode.getNextNode();
+        }
+        currentNode.setNextNode(newNode);
+    }
+
     public void deleteAtFirst() {
         this.head = this.head.getNextNode();
     }
