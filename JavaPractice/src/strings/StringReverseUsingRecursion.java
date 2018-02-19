@@ -11,6 +11,14 @@ public class StringReverseUsingRecursion {
         System.out.println("Reverse string : " + reverse(str));
     }
 
+    /**
+     * execution
+     * reverse("JAVA")
+     * reverse("AVA")+"J"
+     * reverse(("VA")+"A")+"J"
+     * reverse((("A")+"V")+"A)+"J"
+     * "AVAJ"
+     */
     private static String reverse(String str) {
         if (str == null || str.length() < 1) {
             return str;
