@@ -12,7 +12,7 @@ package arrays;
 public class BestTimeToBuySellStock {
 
     public static void main(String args[]) {
-        int prices[] = {7, 6, 4, 3, 1};
+        int prices[] = {7, 1, 5, 3, 6, 4};
 
         int min = prices[0];
         int max = 0;
