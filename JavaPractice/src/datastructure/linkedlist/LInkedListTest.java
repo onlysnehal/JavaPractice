@@ -10,12 +10,13 @@ public class LInkedListTest {
         list.insertAtFirst(5);
         list.insertAtLast(12);
         list.print();
-        System.out.println();
-        System.out.println("Total nodes : " + list.getLength());
+        System.out.println("\n Total nodes : " + list.getLength());
         list.deleteAtFirst();
-        System.out.println("\nAfter deleting first node : ");
+        System.out.println("\n After deleting first node : ");
         list.print();
-        System.out.println();
-        System.out.println("Total nodes : " + list.getLength());
+        System.out.println("\n Total nodes : " + list.getLength());
+        System.out.println("\n Reverse linked list :");
+        list.reverseList();
+        list.print();
     }
 }

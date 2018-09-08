@@ -54,4 +54,19 @@ public class LinkedList {
         }
         return length;
     }
+
+    public void reverseList() {
+        Node currentNode = this.head;
+        Node nextNode;
+        Node previousNode=null;
+
+        while(currentNode!= null) {
+            nextNode = currentNode.getNextNode();
+         currentNode.setNextNode(previousNode);
+            previousNode = currentNode;
+            currentNode = nextNode;
+
+        }
+        this.head = previousNode;
+    }
 }
