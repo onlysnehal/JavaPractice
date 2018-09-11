@@ -21,7 +21,7 @@ public class LinkedList {
         Node newNode = new Node(data);
 
         Node currentNode = this.head;
-        while(currentNode.getNextNode() != null) {
+        while (currentNode.getNextNode() != null) {
             currentNode = currentNode.getNextNode();
         }
         currentNode.setNextNode(newNode);
@@ -58,11 +58,11 @@ public class LinkedList {
     public void reverseList() {
         Node currentNode = this.head;
         Node nextNode;
-        Node previousNode=null;
+        Node previousNode = null;
 
-        while(currentNode!= null) {
+        while (currentNode != null) {
             nextNode = currentNode.getNextNode();
-         currentNode.setNextNode(previousNode);
+            currentNode.setNextNode(previousNode);
             previousNode = currentNode;
             currentNode = nextNode;
 
