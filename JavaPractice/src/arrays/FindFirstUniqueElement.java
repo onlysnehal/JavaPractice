@@ -1,5 +1,8 @@
 package arrays;
 
+/**
+ * Java program to find out the first non repeating element from an array
+ */
 public class FindFirstUniqueElement {
 
     public static void main(String args[]) {
