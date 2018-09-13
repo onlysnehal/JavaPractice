@@ -3,18 +3,22 @@ package arrays;
 public class FindFirstUniqueElement {
 
     public static void main(String args[]) {
-        int arr[] = {3, 6, 9, 6, 4, 3};
+        int arr[] = {3, 1, 6, 3, 6, 4};
         int n = arr.length;
-
+        boolean isUnique = false;
         for (int i = 0; i < n; i++) {
-            int j;
-            for (j = 0; j < n; j++) {
-                if (i != j && arr[i] == arr[j]) {
-                    break;
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    if (arr[i] == arr[j]) {
+                        isUnique = false;
+                        break;
+                    } else {
+                        isUnique = true;
+                    }
                 }
 
             }
-            if (j == n) {
+            if (isUnique) {
                 System.out.println("First non repeating element : " + arr[i]);
                 break;
             }
