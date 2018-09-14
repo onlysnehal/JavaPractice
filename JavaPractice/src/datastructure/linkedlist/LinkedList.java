@@ -69,4 +69,21 @@ public class LinkedList {
         }
         this.head = previousNode;
     }
+
+    public boolean checkForCycle() {
+        if (this.head == null) {
+            return false;
+        } else {
+            //Using two pointers
+            Node slowNode = this.head;
+            Node fastNode = this.head.getNextNode();
+
+            while (fastNode != null && fastNode.getNextNode() != null && slowNode != fastNode) {
+                slowNode = slowNode.getNextNode();
+                fastNode = fastNode.getNextNode().getNextNode();
+
+            }
+            return slowNode == fastNode;
+        }
+    }
 }

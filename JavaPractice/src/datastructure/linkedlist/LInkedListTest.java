@@ -18,5 +18,7 @@ public class LInkedListTest {
         System.out.println("\n Reverse linked list :");
         list.reverseList();
         list.print();
+        System.out.println("\n Linked list has cycle : " + list.checkForCycle());
+
     }
 }
