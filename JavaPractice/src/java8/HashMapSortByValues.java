@@ -2,10 +2,16 @@ package java8;
 
 import java.util.*;
 
+import static java.util.stream.Collectors.*;
+
+/**
+ * Example to demonstrate sort HashMap by value object property
+ */
 public class HashMapSortByValues {
 
     public static void main(String args[]) {
 
+        HashMapSortByValues hashMapSortByValues = new HashMapSortByValues();
         Person p1 = new Person("abc", 22);
         Person p2 = new Person("xyz", 10);
         Person p3 = new Person("mno", 35);
@@ -19,12 +25,27 @@ public class HashMapSortByValues {
 
         // Print Map
         System.out.println("HashMap before sorting");
-        printMap(personMap.entrySet());
+        hashMapSortByValues.printMap(personMap.entrySet());
+        List<Map.Entry<String, Person>> list = hashMapSortByValues.sortWithoutUsingStream(personMap);
 
+
+        //Print Map after sorting
+        System.out.println("HashMap sorting by values without using Java 8 stream");
+        hashMapSortByValues.printMap(list);
+
+
+        // Print Map
+        System.out.println("HashMap sorting by values using Java 8 stream");
+        hashMapSortByValues.printMap(hashMapSortByValues.sortUsingStream(personMap).entrySet());
+
+
+    }
+
+    private List<Map.Entry<String, Person>> sortWithoutUsingStream(Map<String, Person> personMap) {
         /**
          * Steps to sort Map by value object property
          * 1. Get EntrySet to list
-         * 2. Sort list
+         * 2. Sort list using Collections.sort
          */
         List<Map.Entry<String, Person>> list = new ArrayList<>(personMap.entrySet());
         //Sort Map by values without Java 8 Stream
@@ -34,21 +55,24 @@ public class HashMapSortByValues {
                 return ((Integer) o1.getValue().getAge()).compareTo((Integer) o2.getValue().getAge());
             }
         });
-
-        //Print Map after sorting
-        System.out.println("HashMap after sorting");
-        printMap(list);
-
-
+        return list;
     }
 
-    private static void printMap(Collection<Map.Entry<String, Person>> collection) {
+    private void printMap(Collection<Map.Entry<String, Person>> collection) {
         // Print Map
         for (Map.Entry<String, Person> entry : collection) {
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
     }
 
+    private Map<String, Person> sortUsingStream(Map<String, Person> map) {
+        //Java 8 stream
+        return map
+                .entrySet()
+                .stream()
+                .sorted((e1, e2) -> e1.getValue().getAge() - e2.getValue().getAge())
+                .collect(toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2, LinkedHashMap::new));
+    }
 
 }
 
